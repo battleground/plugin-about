@@ -5,4 +5,5 @@
     android:gravity="center"
     android:orientation="vertical"
     android:text="@string/action_menu_about"
-    android:textSize="48dp" />
+    android:textSize="48dp"
+    android:onClick="onClick"/>

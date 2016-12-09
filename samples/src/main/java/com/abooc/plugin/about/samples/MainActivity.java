@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.abooc.plugin.about.About;
@@ -40,4 +41,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void onClick(View view) {
+        AboutActivity.launch(this);
+    }
 }

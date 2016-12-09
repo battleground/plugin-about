@@ -4,7 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -29,7 +31,16 @@ public class AboutActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ActionBar actionBar = getSupportActionBar();
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        if (actionBar == null) {
+            setSupportActionBar(toolbar);
+            actionBar = getSupportActionBar();
+        } else {
+            toolbar.setVisibility(View.GONE);
+        }
+
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         init();
     }
@@ -44,8 +55,6 @@ public class AboutActivity extends AppCompatActivity implements View.OnClickList
         Copyright.setText(about.copyright);
         ImageView logoView = (ImageView) findViewById(R.id.Logo);
         logoView.setImageResource(about.iconResId);
-
-
     }
 
     @Override
