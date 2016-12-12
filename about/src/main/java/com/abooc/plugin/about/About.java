@@ -23,6 +23,10 @@ public class About {
     String copyright;
     String updateUrl;
 
+    String termsUrl;
+    String policyUrl;
+    String licenceUrl;
+
     private static About ourInstance = new About();
 
     public static About getAbout() {
@@ -50,6 +54,18 @@ public class About {
 
     public void setUpdateUrl(String updateUrl) {
         this.updateUrl = updateUrl;
+    }
+
+    public void setPolicyUrl(String policyUrl) {
+        this.policyUrl = policyUrl;
+    }
+
+    public void setTermsUrl(String termsUrl) {
+        this.termsUrl = termsUrl;
+    }
+
+    public void setLicenceUrl(String licenceUrl) {
+        this.licenceUrl = licenceUrl;
     }
 
     public static String getApplicationName(Context context) {

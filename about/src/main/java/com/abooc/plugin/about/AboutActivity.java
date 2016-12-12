@@ -96,4 +96,20 @@ public class AboutActivity extends AppCompatActivity implements View.OnClickList
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(intent);
     }
+
+    public void onClickLicence(View view) {
+        WebActivity.launch(this);
+    }
+
+    public void onClickPolicy(View view) {
+        Uri uri = Uri.parse("http://www.abooc.com");
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        startActivity(intent);
+    }
+
+    public void onClickTerms(View view) {
+        Uri uri = Uri.parse("http://www.abooc.com");
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        startActivity(intent);
+    }
 }

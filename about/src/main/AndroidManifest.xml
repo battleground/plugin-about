@@ -6,6 +6,10 @@
         <activity
             android:name=".AboutActivity"
             android:label="@string/plugin_about_name" />
+
+        <activity
+            android:name=".WebActivity"
+            android:label="@string/plugin_about_licence" />
     </application>
 
 </manifest>
