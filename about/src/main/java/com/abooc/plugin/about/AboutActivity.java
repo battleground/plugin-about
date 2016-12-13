@@ -2,6 +2,7 @@ package com.abooc.plugin.about;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -65,10 +66,12 @@ public class AboutActivity extends AppCompatActivity implements View.OnClickList
         About about = About.getAbout();
         if (null == about.updateUrl || "".equals(about.updateUrl)) {
             updateText.setClickable(false);
+            updateText.setTextColor(Color.parseColor("#616161"));
             updateText.setText(getString(R.string.plugin_about_already_latest));
         } else {
             updateText.setOnClickListener(this);
             updateText.setClickable(true);
+            updateText.setTextColor(Color.parseColor("#4271c3"));
             updateText.setText(getString(R.string.plugin_about_update));
         }
     }

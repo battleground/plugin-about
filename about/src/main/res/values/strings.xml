@@ -4,9 +4,9 @@
     <string name="plugin_about_powered_by"><u>\@ABOOC:about</u> 强力驱动</string>
 
     <string name="plugin_about_already_latest">已安装最新版本。</string>
-    <string name="plugin_about_update">有新版本</string>
+    <string name="plugin_about_update"><u>有新版本，立即安装</u></string>
 
-    <string name="plugin_about_terms"><u>条款和条件</u> </string>
-    <string name="plugin_about_policy"><u>隐私政策</u> </string>
-    <string name="plugin_about_licence"><u>开源许可证</u> </string>
+    <string name="plugin_about_terms"><u>条款和条件</u></string>
+    <string name="plugin_about_policy"><u>隐私政策</u></string>
+    <string name="plugin_about_licence"><u>开源许可证</u></string>
 </resources>
