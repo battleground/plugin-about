@@ -77,16 +77,20 @@ public class AboutActivity extends AppCompatActivity implements View.OnClickList
     }
 
     /**
-     * 检查更新事件
+     * 有新版本，立即安装
      *
      * @param v
      */
     @Override
     public void onClick(View v) {
         About about = About.getAbout();
-        Uri uri = Uri.parse(about.updateUrl);
-        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-        startActivity(intent);
+        if (about.mAction == null) {
+            Uri uri = Uri.parse(about.updateUrl);
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(intent);
+        } else {
+            about.mAction.onAction(About.Action.ACTION_UPDATE);
+        }
     }
 
     @Override
@@ -95,22 +99,35 @@ public class AboutActivity extends AppCompatActivity implements View.OnClickList
         return super.onOptionsItemSelected(item);
     }
 
-    public void onClickPoweredBy(View view) {
-        String url = getResources().getString(R.string.plugin_about_powered_by_url);
-        Uri uri = Uri.parse(url);
-        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-        startActivity(intent);
-    }
-
     public void onClickIntroduce(View view) {
+        About about = About.getAbout();
+        if (about.mAction == null) {
+        } else {
+            about.mAction.onAction(About.Action.ACTION_INTRODUCE);
+        }
 
     }
 
     public void onClickHelp(View view) {
+        About about = About.getAbout();
+        if (about.mAction == null) {
+        } else {
+            about.mAction.onAction(About.Action.ACTION_HELP);
+        }
 
     }
 
+    /**
+     * 检查更新事件
+     *
+     * @param view
+     */
     public void onClickCheck(View view) {
+        About about = About.getAbout();
+        if (about.mAction == null) {
+        } else {
+            about.mAction.onAction(About.Action.ACTION_CHECK);
+        }
 
     }
 
@@ -121,8 +138,12 @@ public class AboutActivity extends AppCompatActivity implements View.OnClickList
      */
     public void onClickTerms(View view) {
         About about = About.getAbout();
-        String title = getString(R.string.plugin_about_terms);
-        WebActivity.launch(this, title, about.termsUrl);
+        if (about.mAction == null) {
+            String title = getString(R.string.plugin_about_terms);
+            WebActivity.launch(this, title, about.termsUrl);
+        } else {
+            about.mAction.onAction(About.Action.ACTION_TERMS);
+        }
     }
 
     /**
@@ -132,8 +153,12 @@ public class AboutActivity extends AppCompatActivity implements View.OnClickList
      */
     public void onClickPolicy(View view) {
         About about = About.getAbout();
-        String title = getString(R.string.plugin_about_policy);
-        WebActivity.launch(this, title, about.policyUrl);
+        if (about.mAction == null) {
+            String title = getString(R.string.plugin_about_policy);
+            WebActivity.launch(this, title, about.policyUrl);
+        } else {
+            about.mAction.onAction(About.Action.ACTION_POLICY);
+        }
     }
 
     /**
@@ -143,7 +168,11 @@ public class AboutActivity extends AppCompatActivity implements View.OnClickList
      */
     public void onClickLicence(View view) {
         About about = About.getAbout();
-        String title = getString(R.string.plugin_about_licence);
-        WebActivity.launch(this, title, about.licenceUrl);
+        if (about.mAction == null) {
+            String title = getString(R.string.plugin_about_licence);
+            WebActivity.launch(this, title, about.licenceUrl);
+        } else {
+            about.mAction.onAction(About.Action.ACTION_LICENCE);
+        }
     }
 }

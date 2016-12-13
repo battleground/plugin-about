@@ -1,7 +1,9 @@
 package com.abooc.plugin.about.samples;
 
 import android.os.Bundle;
+import android.support.v4.util.DebugUtils;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,7 +22,18 @@ public class MainActivity extends AppCompatActivity {
         About about = About.getAbout();
         about.setLicenceUrl("http://www.abooc.com");
         about.setUpdateUrl("http://www.abooc.com");
+        about.setCopyright("abooc, Inc.");
         setContentView(R.layout.activity_main);
+
+        About.SimpleAction simpleAction = new About.SimpleAction() {
+            @Override
+            public void onAction(int action) {
+                StringBuilder builder = new StringBuilder("action:" + action);
+                DebugUtils.buildShortClassTag(this, builder);
+                Log.d("TAG", builder.toString());
+            }
+        };
+//        about.implAction(simpleAction);
     }
 
     @Override

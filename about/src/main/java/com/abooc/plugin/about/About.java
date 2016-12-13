@@ -15,6 +15,42 @@ import java.util.Calendar;
  */
 public class About {
 
+    public interface Action {
+
+        int ACTION_UPDATE = 0;
+        int ACTION_INTRODUCE = 1;
+        int ACTION_HELP = 2;
+        int ACTION_CHECK = 3;
+        int ACTION_TERMS = 4;
+        int ACTION_POLICY = 5;
+        int ACTION_LICENCE = 6;
+
+        /**
+         * 覆写点击事件
+         *
+         * @param action
+         */
+        void onAction(int action);
+    }
+
+    public static class SimpleAction implements Action {
+
+
+        public void onAction(int action) {
+
+        }
+    }
+
+    /**
+     * 扩展点击事件
+     *
+     * @param action
+     */
+    public void implAction(Action action) {
+        mAction = action;
+    }
+
+    Action mAction;
 
     int iconResId;
     String AppName;
@@ -36,6 +72,11 @@ public class About {
     private About() {
     }
 
+    /**
+     * 使用默认配置
+     *
+     * @param context
+     */
     public static void defaultAbout(Context context) {
         ourInstance.build(context.getApplicationContext());
     }
@@ -48,44 +89,64 @@ public class About {
         versionName = getVersionName(context);
         versionCode = getVersionCode(context);
         int year = Calendar.getInstance().get(Calendar.YEAR);
-        copyright = String.valueOf(year);
+        copyright = "©" + String.valueOf(year);
         updateUrl = "";
+    }
+
+    /**
+     * 设置Copyright {yyyy} {name of copyright owner}
+     *
+     * @param owner
+     * @return this
+     */
+    public About setCopyright(String owner) {
+        int year = Calendar.getInstance().get(Calendar.YEAR);
+        this.copyright = "©" + String.valueOf(year) + " " + owner;
+        return this;
     }
 
     /**
      * 设置更新地址
      *
      * @param updateUrl
+     * @return this
      */
-    public void setUpdateUrl(String updateUrl) {
+    public About setUpdateUrl(String updateUrl) {
         this.updateUrl = updateUrl;
+        return this;
     }
 
     /**
      * 设置服务条款
      *
      * @param termsUrl
+     * @return this
      */
-    public void setTermsUrl(String termsUrl) {
+    public About setTermsUrl(String termsUrl) {
         this.termsUrl = termsUrl;
+        return this;
     }
 
     /**
      * 设置隐私政策
      *
      * @param policyUrl
+     * @return this
      */
-    public void setPolicyUrl(String policyUrl) {
+    public About setPolicyUrl(String policyUrl) {
         this.policyUrl = policyUrl;
+        return this;
     }
 
     /**
      * 设置开源许可证
      *
      * @param licenceUrl
+     * @return this
      */
-    public void setLicenceUrl(String licenceUrl) {
+    public About setLicenceUrl(String licenceUrl) {
         this.licenceUrl = licenceUrl;
+        return this;
     }
 
     public static String getApplicationName(Context context) {
