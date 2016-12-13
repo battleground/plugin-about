@@ -52,18 +52,38 @@ public class About {
         updateUrl = "";
     }
 
+    /**
+     * 设置更新地址
+     *
+     * @param updateUrl
+     */
     public void setUpdateUrl(String updateUrl) {
         this.updateUrl = updateUrl;
     }
 
-    public void setPolicyUrl(String policyUrl) {
-        this.policyUrl = policyUrl;
-    }
-
+    /**
+     * 设置服务条款
+     *
+     * @param termsUrl
+     */
     public void setTermsUrl(String termsUrl) {
         this.termsUrl = termsUrl;
     }
 
+    /**
+     * 设置隐私政策
+     *
+     * @param policyUrl
+     */
+    public void setPolicyUrl(String policyUrl) {
+        this.policyUrl = policyUrl;
+    }
+
+    /**
+     * 设置开源许可证
+     *
+     * @param licenceUrl
+     */
     public void setLicenceUrl(String licenceUrl) {
         this.licenceUrl = licenceUrl;
     }

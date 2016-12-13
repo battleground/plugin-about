@@ -16,55 +16,42 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical">
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="28dp">
 
         <ImageView
             android:id="@+id/Logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
             android:layout_margin="12dp"
             android:scaleType="centerCrop"
             android:src="@mipmap/plugin_about_ic_about" />
-
 
         <TextView
             android:id="@+id/AppName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/Logo"
-            android:layout_centerInParent="true"
             android:padding="10dp"
             android:text="@string/plugin_about_name"
             android:textSize="18sp"
             android:textStyle="bold" />
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/Version"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/AppName"
-            android:layout_centerInParent="true"
-            android:orientation="horizontal">
+            android:text="版本：1.1.0 (build:334)"
+            android:textStyle="italic" />
 
-            <TextView
-                android:id="@+id/Version"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="版本：1.1.0 (build:334)"
-                android:textStyle="italic" />
-
-        </LinearLayout>
-
-    </RelativeLayout>
+    </LinearLayout>
 
     <LinearLayout
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="3"
         android:orientation="vertical">
 
         <TextView
@@ -72,12 +59,62 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:drawable/list_selector_background"
-            android:clickable="true"
             android:gravity="center"
-            android:padding="16dp"
-            android:text="已安装最新版本。" />
+            android:padding="12dp"
+            android:text="@string/plugin_about_already_latest" />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="42dp"
+        android:layout_marginRight="42dp"
+        android:layout_marginTop="30dp"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/list_selector_background"
+            android:clickable="true"
+            android:gravity="left"
+            android:onClick="onClickIntroduce"
+            android:padding="12dp"
+            android:text="功能介绍" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#EEE" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/list_selector_background"
+            android:clickable="true"
+            android:gravity="left"
+            android:onClick="onClickHelp"
+            android:padding="12dp"
+            android:text="帮助与反馈" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#EEE" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/list_selector_background"
+            android:clickable="true"
+            android:gravity="left"
+            android:onClick="onClickCheck"
+            android:padding="12dp"
+            android:text="检查新版本" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -91,8 +128,8 @@
             android:layout_height="wrap_content"
             android:autoLink="web"
             android:gravity="center"
-            android:padding="4dp"
             android:onClick="onClickTerms"
+            android:padding="4dp"
             android:text="@string/plugin_about_terms"
             android:textColor="#4271c3" />
 
@@ -101,8 +138,8 @@
             android:layout_height="wrap_content"
             android:autoLink="web"
             android:gravity="center"
-            android:padding="4dp"
             android:onClick="onClickPolicy"
+            android:padding="4dp"
             android:text="@string/plugin_about_policy"
             android:textColor="#4271c3" />
 
@@ -111,8 +148,8 @@
             android:layout_height="wrap_content"
             android:autoLink="web"
             android:gravity="center"
-            android:padding="4dp"
             android:onClick="onClickLicence"
+            android:padding="4dp"
             android:text="@string/plugin_about_licence"
             android:textColor="#4271c3" />
 
@@ -145,7 +182,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"
             android:gravity="center"
-            android:text="/©2014"
+            android:text="©2014"
             android:textSize="12sp"
             android:textStyle="bold" />
 

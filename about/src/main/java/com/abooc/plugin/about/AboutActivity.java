@@ -60,14 +60,16 @@ public class AboutActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onResume() {
         super.onResume();
-        View viewById = findViewById(R.id.Update);
+        TextView updateText = (TextView) findViewById(R.id.Update);
 
         About about = About.getAbout();
         if (null == about.updateUrl || "".equals(about.updateUrl)) {
-            viewById.setVisibility(View.GONE);
+            updateText.setClickable(false);
+            updateText.setText(getString(R.string.plugin_about_already_latest));
         } else {
-            viewById.setOnClickListener(this);
-            viewById.setVisibility(View.VISIBLE);
+            updateText.setOnClickListener(this);
+            updateText.setClickable(true);
+            updateText.setText(getString(R.string.plugin_about_update));
         }
     }
 
@@ -97,6 +99,18 @@ public class AboutActivity extends AppCompatActivity implements View.OnClickList
         startActivity(intent);
     }
 
+    public void onClickIntroduce(View view) {
+
+    }
+
+    public void onClickHelp(View view) {
+
+    }
+
+    public void onClickCheck(View view) {
+
+    }
+
     /**
      * 条款
      *
@@ -104,7 +118,7 @@ public class AboutActivity extends AppCompatActivity implements View.OnClickList
      */
     public void onClickTerms(View view) {
         About about = About.getAbout();
-        String title = getResources().getString(R.string.plugin_about_terms);
+        String title = getString(R.string.plugin_about_terms);
         WebActivity.launch(this, title, about.termsUrl);
     }
 
@@ -115,7 +129,7 @@ public class AboutActivity extends AppCompatActivity implements View.OnClickList
      */
     public void onClickPolicy(View view) {
         About about = About.getAbout();
-        String title = getResources().getString(R.string.plugin_about_policy);
+        String title = getString(R.string.plugin_about_policy);
         WebActivity.launch(this, title, about.policyUrl);
     }
 
@@ -126,7 +140,7 @@ public class AboutActivity extends AppCompatActivity implements View.OnClickList
      */
     public void onClickLicence(View view) {
         About about = About.getAbout();
-        String title = getResources().getString(R.string.plugin_about_licence);
+        String title = getString(R.string.plugin_about_licence);
         WebActivity.launch(this, title, about.licenceUrl);
     }
 }
