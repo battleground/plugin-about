@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         About.defaultAbout(this);
+        About.getAbout().setLicenceUrl("http://www.abooc.com");
         setContentView(R.layout.activity_main);
     }
 

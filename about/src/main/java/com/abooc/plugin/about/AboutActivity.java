@@ -97,19 +97,36 @@ public class AboutActivity extends AppCompatActivity implements View.OnClickList
         startActivity(intent);
     }
 
-    public void onClickLicence(View view) {
-        WebActivity.launch(this);
-    }
-
-    public void onClickPolicy(View view) {
-        Uri uri = Uri.parse("http://www.abooc.com");
-        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-        startActivity(intent);
-    }
-
+    /**
+     * 条款
+     *
+     * @param view
+     */
     public void onClickTerms(View view) {
-        Uri uri = Uri.parse("http://www.abooc.com");
-        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-        startActivity(intent);
+        About about = About.getAbout();
+        String title = getResources().getString(R.string.plugin_about_terms);
+        WebActivity.launch(this, title, about.termsUrl);
+    }
+
+    /**
+     * 隐私政策
+     *
+     * @param view
+     */
+    public void onClickPolicy(View view) {
+        About about = About.getAbout();
+        String title = getResources().getString(R.string.plugin_about_policy);
+        WebActivity.launch(this, title, about.policyUrl);
+    }
+
+    /**
+     * 开源许可证
+     *
+     * @param view
+     */
+    public void onClickLicence(View view) {
+        About about = About.getAbout();
+        String title = getResources().getString(R.string.plugin_about_licence);
+        WebActivity.launch(this, title, about.licenceUrl);
     }
 }
