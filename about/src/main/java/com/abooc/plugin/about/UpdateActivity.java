@@ -26,8 +26,6 @@ public class UpdateActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update);
-
-        About.getAbout().setUpdateUrl("http://fir.im/fmpd");
     }
 
     /**
