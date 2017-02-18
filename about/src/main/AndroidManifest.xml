@@ -10,6 +10,9 @@
         <activity
             android:name=".WebActivity"
             android:label="@string/plugin_about_licence" />
+
+        <activity
+            android:name=".UpdateActivity" />
     </application>
 
 </manifest>
